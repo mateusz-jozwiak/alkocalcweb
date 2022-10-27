@@ -104,9 +104,9 @@ export default {
     
     loading: false,
     selection: 1,
-    ilosc: "1000",
-    moc: "96",
-    moc_doc: "40",
+    ilosc: "0",
+    moc: "0",
+    moc_doc: "0",
     alert: false,
     alert1: false,
     result_wody: 0,
