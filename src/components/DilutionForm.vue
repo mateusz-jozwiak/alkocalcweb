@@ -28,9 +28,9 @@
 
 
 
-      <v-alert dense v-model="alert"  elevation="2" colored-border>
-        <v-simple-table dense>
-    <template v-slot:default>
+      <!-- <v-alert dense v-model="alert"  elevation="2" colored-border> -->
+        <v-simple-table dense :disabled="ilosc <= 0">
+    <template v-slot:default >
       <thead>
         <tr>
           <th class="text-left">
@@ -77,7 +77,7 @@
       </tbody>
     </template>
   </v-simple-table>
-      </v-alert>
+      <!-- </v-alert> -->
 
     </v-card-text>
 
@@ -85,7 +85,7 @@
 
 
     <v-card-action justify="space-around">
-      <v-btn text color="primary" @click=" alert = true, alert1 = true" dark> Oblicz </v-btn>
+      <v-btn :disabled="ilosc <= 0" text color="primary" @click=" alert = true" dark> Oblicz </v-btn>
       <v-btn text color="error" @click="clear()"> Wyczyść </v-btn>
     </v-card-action>
     <v-divider class="mx-4"></v-divider>
@@ -104,9 +104,9 @@ export default {
     
     loading: false,
     selection: 1,
-    ilosc: "1600",
-    moc: "96",
-    moc_doc: "56",
+    ilosc: 0,
+    moc: 0,
+    moc_doc: 0,
     alert: false,
     alert1: false,
     chip2: true,
@@ -132,8 +132,9 @@ export default {
       this.moc = 0
       this.moc_doc = 0
       this.alert = false
-      this.alert1 = false
-    }
+      
+    },
   },
+  
 };
 </script>
