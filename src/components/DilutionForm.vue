@@ -51,29 +51,29 @@
           <tbody>
             <tr>
               <td>Ilość potrzebnej wody:</td>
-              <td>
+              <td class="red--text">
                 {{ ilosc_wody().toFixed(0) + " ml" }}
               </td>
-              <td>
+              <td class="blue--text bold">
                 {{ (ilosc_wody() / 1000).toFixed(3) + " l" }}
               </td>
 
             </tr>
             <tr>
               <td>Otrzymasz wódki:</td>
-              <td>
+              <td class="red--text">
                 {{ ilosc_alkoholu().toFixed(0) + " ml" }}
               </td>
-              <td>
+              <td class="blue--text bold">
                 {{ (ilosc_alkoholu() / 1000).toFixed(3) + " l" }}
               </td>
             </tr>
             <tr>
               <td>Kontrakcja:</td>
-              <td>
+              <td class="red--text">
                 {{ kontrakcja().toFixed(0) + " ml" }}
               </td>
-              <td>
+              <td class="blue--text bold">
                 {{ (kontrakcja() / 1000).toFixed(3) + " l" }}
               </td>
 
