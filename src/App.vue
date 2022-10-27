@@ -15,7 +15,7 @@
 
       <div>
 
-        <!-- <v-switch v-model="$vuetify.theme.dark" hide-details></v-switch> -->
+        <!-- <v-switch  v-model="$vuetify.theme.dark" hide-details></v-switch> -->
         <v-checkbox class="pt-5" v-model="$vuetify.theme.dark" off-icon="mdi-theme-light-dark"
           on-icon="mdi-theme-light-dark"></v-checkbox>
 
@@ -34,9 +34,12 @@ import SideBar from '@/components/SideBar.vue'
 export default {
 
   data: () => ({ drawer: null }),
+  t:true,
   components: {
     SideBar,
 
-  }
+  },
+  
+  
 };
 </script>

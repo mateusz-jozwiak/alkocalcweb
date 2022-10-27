@@ -1,6 +1,6 @@
 <template>
   <v-card class="mx-2 my-2" max-width="auto">
-    <v-card-title>Mieszanie stęzeń:</v-card-title>
+    <v-card-title>Rozcięczanie alkoholu:</v-card-title>
     <v-divider class="mx-4"></v-divider>
     <v-card-text>
       <v-form>
@@ -23,6 +23,7 @@
                 v-model="moc_doc" required></v-numeric>
             </v-col>
           </v-row>
+          
         </v-container>
       </v-form>
 
@@ -48,7 +49,7 @@
         <tr>
           <td>Ilość potrzebnej wody:</td>
           <td>
-            {{ ilosc_wody().toFixed(0) + " ml"}}
+            {{ ilosc_wody().toFixed(0)+ " ml"}}
            </td>
           <td>
             {{ (ilosc_wody() / 1000).toFixed(3) + " l" }}
@@ -58,7 +59,7 @@
         <tr>
           <td>Otrzymasz wódki:</td>
           <td>
-            {{ ilosc_alkoholu().toFixed(0) + " ml" }}
+            {{ ilosc_alkoholu().toFixed(0)+ " ml" }}
           </td>
           <td> 
             {{ (ilosc_alkoholu() / 1000).toFixed(3) + " l" }}
@@ -116,16 +117,16 @@ export default {
     ilosc_wody() {
       this.result_wody = parseFloat(((this.ilosc) * (this.moc)) / this.moc_doc - (this.ilosc))
       this.result_wody = ((this.result_wody + ((parseFloat(this.result_wody) + parseFloat(this.ilosc))) * 0.03))
-      return this.result_wody
+      return this.result_wody || 0
     },
     ilosc_alkoholu() {
       this.result_alko = (((parseFloat(((this.ilosc) * (this.moc)) / this.moc_doc - (this.ilosc))) + parseFloat(this.ilosc)))
-      return this.result_alko
+      return this.result_alko || 0
     },
     
     kontrakcja() {
       this.result_kontrakcja = (this.result_alko*0.03)
-      return this.result_kontrakcja
+      return this.result_kontrakcja || 0
     },
     clear() {
       this.ilosc = 0
