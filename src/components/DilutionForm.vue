@@ -1,5 +1,7 @@
 <template>
-  <v-card class="mx-2 my-2" max-width="auto">
+  <v-card class="mx-2 my-2" max-width="auto" center>
+    <v-img class="white--text align-end" height="100px" src="https://cdn.pixabay.com/photo/2018/12/28/01/34/rum-3898745_1280.jpg">
+    </v-img>
     <v-card-title>Rozcieńczanie alkoholu:</v-card-title>
     <v-divider class="mx-4"></v-divider>
     <v-card-text>
@@ -23,61 +25,61 @@
                 v-model="moc_doc" required></v-numeric>
             </v-col>
           </v-row>
-          
+
         </v-container>
       </v-form>
 
 
 
       <!-- <v-alert dense v-model="alert"  elevation="2" colored-border> -->
-        <v-simple-table dense :disabled="ilosc <= 0">
-    <template v-slot:default >
-      <thead>
-        <tr>
-          <th class="text-left">
-            
-          </th>
-          <th class="text-left">
-            ml
-          </th>
-          <th class="text-left">
-            litry
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Ilość potrzebnej wody:</td>
-          <td>
-            {{ ilosc_wody().toFixed(0)+ " ml"}}
-           </td>
-          <td>
-            {{ (ilosc_wody() / 1000).toFixed(3) + " l" }}
-          </td>
-          
-        </tr>
-        <tr>
-          <td>Otrzymasz wódki:</td>
-          <td>
-            {{ ilosc_alkoholu().toFixed(0)+ " ml" }}
-          </td>
-          <td> 
-            {{ (ilosc_alkoholu() / 1000).toFixed(3) + " l" }}
-          </td>    
-        </tr>
-        <tr>
-          <td>Kontrakcja:</td>
-          <td>
-            {{ kontrakcja().toFixed(0) + " ml" }}
-          </td>
-          <td> 
-            {{ (kontrakcja() / 1000).toFixed(3) + " l" }}
-          </td>    
-         
-        </tr>
-      </tbody>
-    </template>
-  </v-simple-table>
+      <v-simple-table dense :disabled="ilosc <= 0">
+        <template v-slot:default>
+          <thead>
+            <tr>
+              <th class="text-left">
+
+              </th>
+              <th class="text-left">
+                ml
+              </th>
+              <th class="text-left">
+                litry
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Ilość potrzebnej wody:</td>
+              <td>
+                {{ ilosc_wody().toFixed(0) + " ml" }}
+              </td>
+              <td>
+                {{ (ilosc_wody() / 1000).toFixed(3) + " l" }}
+              </td>
+
+            </tr>
+            <tr>
+              <td>Otrzymasz wódki:</td>
+              <td>
+                {{ ilosc_alkoholu().toFixed(0) + " ml" }}
+              </td>
+              <td>
+                {{ (ilosc_alkoholu() / 1000).toFixed(3) + " l" }}
+              </td>
+            </tr>
+            <tr>
+              <td>Kontrakcja:</td>
+              <td>
+                {{ kontrakcja().toFixed(0) + " ml" }}
+              </td>
+              <td>
+                {{ (kontrakcja() / 1000).toFixed(3) + " l" }}
+              </td>
+
+            </tr>
+          </tbody>
+        </template>
+      </v-simple-table>
       <!-- </v-alert> -->
 
     </v-card-text>
@@ -86,12 +88,12 @@
 
 
     <v-card-action justify="space-around">
-      <v-btn :disabled="ilosc <= 0" text color="primary" @click=" alert = true" dark> Oblicz </v-btn>
-      <v-btn text color="error" @click="clear()"> Wyczyść </v-btn>
+      <!-- <v-btn :disabled="ilosc <= 0" color="primary" @click=" alert = true" dark> Oblicz </v-btn> -->
+      <v-btn block color="error"  depressed @click="clear()"> Wyczyść </v-btn>
     </v-card-action>
-    <v-divider class="mx-4"></v-divider>
+    
 
-   
+
 
   </v-card>
 
@@ -102,7 +104,7 @@
 <script>
 export default {
   data: () => ({
-    
+
     loading: false,
     selection: 1,
     ilosc: 0,
@@ -123,9 +125,9 @@ export default {
       this.result_alko = (((parseFloat(((this.ilosc) * (this.moc)) / this.moc_doc - (this.ilosc))) + parseFloat(this.ilosc)))
       return this.result_alko || 0
     },
-    
+
     kontrakcja() {
-      this.result_kontrakcja = (this.result_alko*0.03)
+      this.result_kontrakcja = (this.result_alko * 0.03)
       return this.result_kontrakcja || 0
     },
     clear() {
@@ -133,9 +135,9 @@ export default {
       this.moc = 0
       this.moc_doc = 0
       this.alert = false
-      
+
     },
   },
-  
+
 };
 </script>
