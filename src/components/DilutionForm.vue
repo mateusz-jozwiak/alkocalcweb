@@ -140,7 +140,11 @@ export default {
       this.alert = false
 
     },
+    mounted() {
+                  document.title = "Rozcieńcznie";
+                      },
   },
+  
 
 };
 </script>
