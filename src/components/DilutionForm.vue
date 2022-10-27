@@ -104,15 +104,11 @@ export default {
     
     loading: false,
     selection: 1,
-    ilosc: "0",
-    moc: "0",
-    moc_doc: "0",
+    ilosc: "1600",
+    moc: "96",
+    moc_doc: "56",
     alert: false,
     alert1: false,
-    result_wody: 0,
-    result_alko: 0,
-    result_kontrakcja: 0,
-    // all: 0,
     chip2: true,
   }),
 
@@ -123,7 +119,7 @@ export default {
       return this.result_wody
     },
     ilosc_alkoholu() {
-      this.result_alko = ((parseFloat(this.result_wody) + parseFloat(this.ilosc)))-this.result_kontrakcja
+      this.result_alko = (((parseFloat(((this.ilosc) * (this.moc)) / this.moc_doc - (this.ilosc))) + parseFloat(this.ilosc)))
       return this.result_alko
     },
     
@@ -131,11 +127,6 @@ export default {
       this.result_kontrakcja = (this.result_alko*0.03)
       return this.result_kontrakcja
     },
-    
-    // whole() {
-    //   this.all = parseFloat(this.result) + parseFloat(this.ilosc)
-    //   return this.all
-    // },
     clear() {
       this.ilosc = 0
       this.moc = 0
