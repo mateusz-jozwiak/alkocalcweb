@@ -1,6 +1,6 @@
 <template>
   <v-card class="mx-2 my-2" max-width="auto">
-    <v-card-title>Rozcięczanie alkoholu:</v-card-title>
+    <v-card-title>Rozcieńczanie alkoholu:</v-card-title>
     <v-divider class="mx-4"></v-divider>
     <v-card-text>
       <v-form>
