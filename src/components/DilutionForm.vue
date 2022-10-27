@@ -1,6 +1,7 @@
 <template>
   <v-card class="mx-2 my-2" max-width="auto" center>
-    <v-img class="white--text align-end" height="100px" src="https://cdn.pixabay.com/photo/2018/12/28/01/34/rum-3898745_1280.jpg">
+    <v-img class="white--text align-end" height="100px"
+      src="https://cdn.pixabay.com/photo/2018/12/28/01/34/rum-3898745_1280.jpg">
     </v-img>
     <v-card-title>Rozcieńczanie alkoholu:</v-card-title>
     <v-divider class="mx-4"></v-divider>
@@ -89,14 +90,16 @@
 
     <v-card-action justify="space-around">
       <!-- <v-btn :disabled="ilosc <= 0" color="primary" @click=" alert = true" dark> Oblicz </v-btn> -->
-      <v-btn block color="error"  depressed @click="clear()"> Wyczyść </v-btn>
+      <v-btn block color="error" depressed @click="clear()"> Wyczyść </v-btn>
     </v-card-action>
-    
+
 
 
 
   </v-card>
 
+
+  
 
 </template>
 

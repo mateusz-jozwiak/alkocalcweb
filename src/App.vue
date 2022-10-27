@@ -26,7 +26,13 @@
       
       <router-view />
     </v-main>
+    <v-footer padless absolute>
+    <v-col class="text-right" cols="12">
+      {{ new Date().getFullYear() }} — <strong>AlkoCalc</strong>
+    </v-col>
+  </v-footer>
   </v-app>
+  
 </template>
 
 <script>
