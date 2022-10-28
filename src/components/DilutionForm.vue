@@ -1,6 +1,6 @@
 <template>
   <v-card class="mx-2 my-2" max-width="auto" center>
-    <v-img class="white--text align-end" height="100px"
+    <v-img class="white--text align-end" height="80px"
       src="https://cdn.pixabay.com/photo/2018/12/28/01/34/rum-3898745_1280.jpg">
     </v-img>
     <v-card-title>Rozcieńczanie alkoholu:</v-card-title>
@@ -51,30 +51,30 @@
           <tbody>
             <tr>
               <td>Ilość potrzebnej wody:</td>
-              <td class="red--text">
-                {{ ilosc_wody().toFixed(0) + " ml" }}
+              <td class="red--text font-weight-bold">
+                {{ ilosc_wody().toFixed(0)}}
               </td>
-              <td class="blue--text bold">
-                {{ (ilosc_wody() / 1000).toFixed(3) + " l" }}
+              <td class="blue--text font-weight-bold">
+                {{ (ilosc_wody() / 1000).toFixed(3)}}
               </td>
 
             </tr>
             <tr>
               <td>Otrzymasz wódki:</td>
-              <td class="red--text">
-                {{ ilosc_alkoholu().toFixed(0) + " ml" }}
+              <td class="red--text font-weight-bold">
+                {{ ilosc_alkoholu().toFixed(0)}}
               </td>
-              <td class="blue--text bold">
-                {{ (ilosc_alkoholu() / 1000).toFixed(3) + " l" }}
+              <td class="blue--text font-weight-bold">
+                {{ (ilosc_alkoholu() / 1000).toFixed(3)}}
               </td>
             </tr>
             <tr>
               <td>Kontrakcja:</td>
-              <td class="red--text">
-                {{ kontrakcja().toFixed(0) + " ml" }}
+              <td class="red--text font-weight-bold">
+                {{ kontrakcja().toFixed(0) }}
               </td>
-              <td class="blue--text bold">
-                {{ (kontrakcja() / 1000).toFixed(3) + " l" }}
+              <td class="blue--text font-weight-bold">
+                {{ (kontrakcja() / 1000).toFixed(3)}}
               </td>
 
             </tr>
