@@ -25,7 +25,7 @@
     <v-main>
       
       <router-view />
-      <FooterBar></FooterBar> 
+      <!-- <FooterBar></FooterBar>  -->
     </v-main>
     
   </v-app>
@@ -34,14 +34,14 @@
 
 <script>
 import SideBar from '@/components/SideBar.vue'
-import FooterBar from '@/components/FooterBar.vue'
+// import FooterBar from '@/components/FooterBar.vue'
 export default {
 
   data: () => ({ drawer: null }),
   t:true,
   components: {
     SideBar,
-    FooterBar,
+    // FooterBar,
 
   },
   
