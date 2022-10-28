@@ -6,6 +6,7 @@ Vue.use(Vuetify);
 
 export default new Vuetify({
     theme: { dark: true},
+    
 });
 
 // src/plugins/vuetify.js
