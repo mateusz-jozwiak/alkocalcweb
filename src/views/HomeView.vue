@@ -2,7 +2,9 @@
   <div class="home">
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
     <Dillution></Dillution>
+    
   </div>
+  
 </template>
 
 <script>

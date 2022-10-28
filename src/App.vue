@@ -25,24 +25,23 @@
     <v-main>
       
       <router-view />
+      <FooterBar></FooterBar> 
     </v-main>
-    <v-footer padless absolute>
-    <v-col class="text-right" cols="12">
-      {{ new Date().getFullYear() }} — <strong>AlkoCalc</strong>
-    </v-col>
-  </v-footer>
+    
   </v-app>
   
 </template>
 
 <script>
 import SideBar from '@/components/SideBar.vue'
+import FooterBar from '@/components/FooterBar.vue'
 export default {
 
   data: () => ({ drawer: null }),
   t:true,
   components: {
     SideBar,
+    FooterBar,
 
   },
   

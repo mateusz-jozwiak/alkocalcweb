@@ -1,6 +1,7 @@
 <template>
   <div class="about">
     <AboutForm></AboutForm>
+    
   </div>
 </template>
 
@@ -9,7 +10,7 @@
 import AboutForm from '@/components/AboutForm.vue'
 
 export default {
-  name: 'HomeView',
+  name: 'AboutView',
   components: {
     AboutForm
   }
