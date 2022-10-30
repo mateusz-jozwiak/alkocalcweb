@@ -5,8 +5,8 @@
 
 
     <v-card v-show="!isShown" class="mx-2 my-2" max-width="auto" center>
-      <v-img class="white--text align-end" height="80px"
-        src="https://cdn.pixabay.com/photo/2018/12/28/01/34/rum-3898745_1280.jpg">
+      <v-img class="white--text align-end" height="100px"
+        src="https://cdn.pixabay.com/photo/2015/11/30/23/32/champagner-1071356_1280.jpg">
         
         <v-container class="d-flex justify-right align-right">
             
@@ -28,12 +28,12 @@
               </v-col>
 
               <v-col cols="12" md="4">
-                <v-numeric label="Moc alkoholu" clearable="true" min="0" max="100" precision="0" suffix="%"
+                <v-numeric label="Moc alkoholu" clearable="true" min="0" max="100" precision="1" suffix="%"
                   v-model="moc" required></v-numeric>
               </v-col>
 
               <v-col cols="12" md="4">
-                <v-numeric label="Moc docelowa" clearable="true" min="0" max="100" precision="0" suffix="%"
+                <v-numeric label="Moc docelowa" clearable="true" min="0" max="100" precision="1" suffix="%"
                   v-model="moc_doc" required></v-numeric>
               </v-col>
             </v-row>
@@ -63,7 +63,7 @@
               <tr>
                 <td>Ilość potrzebnej wody:</td>
                 <td class="red--text font-weight-bold">
-                  {{ ilosc_wody().toFixed(1) }}
+                  {{ ilosc_wody().toFixed(0) }}
                 </td>
                 <td class="blue--text font-weight-bold">
                   {{ (ilosc_wody() / 1000).toFixed(3) }}
@@ -73,7 +73,7 @@
               <tr>
                 <td>Otrzymasz wódki:</td>
                 <td class="red--text font-weight-bold">
-                  {{ ilosc_alkoholu().toFixed(1) }}
+                  {{ ilosc_alkoholu().toFixed() }}
                 </td>
                 <td class="blue--text font-weight-bold">
                   {{ (ilosc_alkoholu() / 1000).toFixed(3) }}
@@ -125,7 +125,7 @@
 
 
     <v-card v-show="isShown" class="mx-2 my-2" max-width="auto" center>
-      <v-img class="white--text align-end" height="80px"
+      <v-img class="white--text align-end" height="100px"
         src="https://cdn.pixabay.com/photo/2018/12/28/01/34/rum-3898745_1280.jpg">
         <v-container class="d-flex justify-right align-right">
             
@@ -150,12 +150,12 @@
               </v-col>
 
               <v-col cols="12" md="4">
-                <v-numeric label="Docelowaa moc wódki" clearable="true" min="0" max="100" precision="0" suffix="%"
+                <v-numeric label="Docelowaa moc wódki" clearable="true" min="0" max="100" precision="1" suffix="%"
                   v-model="moc_wodki" required></v-numeric>
               </v-col>
 
               <v-col cols="12" md="4">
-                <v-numeric label="Moc posiadanego spirytusu" clearable="true" min="0" max="100" precision="0" suffix="%"
+                <v-numeric label="Moc posiadanego spirytusu" clearable="true" min="0" max="100" precision="1" suffix="%"
                   v-model="moc_spirytusu" required></v-numeric>
               </v-col>
             </v-row>
@@ -185,7 +185,7 @@
               <tr>
                 <td>Ilość potrzebnego spirytusu:</td>
                 <td class="red--text font-weight-bold">
-                  {{ potrzeba_spirytusu().toFixed(1) }}
+                  {{ potrzeba_spirytusu().toFixed(0) }}
                 </td>
                 <td class="blue--text font-weight-bold">
                   {{ (potrzeba_spirytusu() / 1000).toFixed(3) }}
@@ -195,7 +195,7 @@
               <tr>
                 <td>Ilość potrzebnej wody:</td>
                 <td class="red--text font-weight-bold">
-                  {{ potrzeba_wody().toFixed(1) }}
+                  {{ potrzeba_wody().toFixed(0) }}
                 </td>
                 <td class="blue--text font-weight-bold">
                   {{ (potrzeba_wody() / 1000).toFixed(3) }}
@@ -204,7 +204,7 @@
               <tr>
                 <td>Kontrakcja:</td>
                 <td class="red--text font-weight-bold">
-                  {{ kontrakcja2().toFixed(1) }}
+                  {{ kontrakcja2().toFixed(0) }}
                 </td>
                 <td class="blue--text font-weight-bold">
                   {{ (kontrakcja2() / 1000).toFixed(3) }}
