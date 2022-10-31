@@ -1,18 +1,18 @@
 <template>
   <div class="about">
-    <AboutForm></AboutForm>
+    <About></About>
     
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import AboutForm from '@/components/AboutForm.vue'
+import About from '@/components/AboutForm.vue'
 
 export default {
   name: 'AboutView',
   components: {
-    AboutForm
+    About,
   }
 }
 </script>

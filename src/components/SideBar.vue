@@ -60,9 +60,9 @@
 export default {
     data: () => ({
         selectedItem: 0,
-        items: [
-            // { text: "Kalkulatory", icon: "mdi-clock", link: "/" },
+        items: [  
             { text: "Rozcieńczanie", icon: "mdi-account", link: "/dillution" },
+            { text: "Mieszanie", icon: "mdi-clock", link: "/blending" },
             { text: "About", icon: "mdi-desk-lamp-off", link: "/about" },
             // { text: "Piwowarstwo", icon: "mdi-flask-empty", link: "/about" },
             // { text: "Gorzelnictwo", icon: "mdi-flower", link: "/about" },
