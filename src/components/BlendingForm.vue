@@ -8,7 +8,7 @@
       >
         <v-container class="d-flex justify-right align-right"> </v-container>
       </v-img>
-      <v-card-title>Mieszanie alkoholu o róznych stezeniach:</v-card-title>
+      <v-card-title>Mieszanie alkoholu o róznych stężeniach:</v-card-title>
       
       <v-divider class="mx-4"></v-divider>
       <v-card-text>
@@ -23,7 +23,7 @@
                   <th >#</th>
                   <th >Ilość (ml)</th>
                   
-                  <th>Stęzenie</th>
+                  <th>Stężenie (%)</th>
                   <th>Akcje</th>
                 </tr>
               </thead>
@@ -69,7 +69,7 @@
                 <th class="text-left"></th>
                 <th class="text-left">Objętość (ml)</th>
                 <th class="text-left">Objętość (l)</th>
-                <th class="text-left">Stęzenie (%)</th>
+                <th class="text-left">Stężenie (%)</th>
               </tr>
             </thead>
             <tbody>
