@@ -13,7 +13,7 @@
             <v-btn color="success" v-on:click="isShown = !isShown" style="float: center">Ile potrzebujesz wódki ?</v-btn>
           
         </v-container>
-      <!-- </v-img> -->
+      </v-img>
       <v-card-title>Ile uzyskasz z posiadanego spirytusu:</v-card-title>
       <v-divider class="mx-4"></v-divider>
       <v-card-text>
