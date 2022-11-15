@@ -125,14 +125,14 @@
 
 
     <v-card v-show="isShown" class="mx-2 my-2" max-width="auto" center>
-      <!-- <v-img class="white--text align-end" height="100px"
-        src="https://cdn.pixabay.com/photo/2018/12/28/01/34/rum-3898745_1280.jpg"> -->
+      <v-img class="white--text align-end" height="100px"
+        src="https://cdn.pixabay.com/photo/2018/12/28/01/34/rum-3898745_1280.jpg">
         <v-container class="d-flex justify-right align-right">
             
             <v-btn  color="success" v-on:click="isShown = !isShown" style="float: center">Ile masz spirytusu ?</v-btn>
           
         </v-container>
-        <!-- </v-img> -->
+        </v-img>
         
           
         
