@@ -48,12 +48,12 @@
                   
                   <td>
                     <span v-if="editIndex !== index">
-                      <v-btn small @click="edit(item, index)" class="btn btn-sm btn-outline-secondary mr-2">Edytuj</v-btn>
-                      <v-btn small @click="remove(item, index)" class="btn btn-sm btn-outline-secondary mr-2">Usuń</v-btn>
+                      <v-btn small icon color="success" @click="edit(item, index)" class="btn btn-sm btn-outline-secondary mr-2"><v-icon>mdi-pencil</v-icon></v-btn>
+                      <v-btn small icon color="error" @click="remove(item, index)" class="btn btn-sm btn-outline-secondary mr-2"><v-icon>mdi-delete</v-icon></v-btn>
                     </span>
                     <span v-else>
-                      <v-btn small class="btn btn-sm btn-outline-secondary mr-2" @click="cancel(item)">Anuluj</v-btn>
-                      <v-btn small class="btn btn-sm btn-outline-secondary mr-2" @click="save(item)">Zapisz</v-btn>
+                      <v-btn small icon color="error" class="btn btn-sm btn-outline-secondary mr-2" @click="cancel(item)"><v-icon>mdi-cancel</v-icon></v-btn>
+                      <v-btn small icon color="success" class="btn btn-sm btn-outline-secondary mr-2" @click="save(item)"><v-icon>mdi-content-save</v-icon></v-btn>
                     </span>
                   </td>
                 </tr>

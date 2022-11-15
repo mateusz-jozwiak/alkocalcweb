@@ -5,15 +5,15 @@
 
 
     <v-card v-show="!isShown" class="mx-2 my-2" max-width="auto" center>
-      <v-img class="white--text align-end" height="100px"
-        src="https://cdn.pixabay.com/photo/2015/11/30/23/32/champagner-1071356_1280.jpg">
+      <!-- <v-img class="white--text align-end" height="100px"
+        src="https://cdn.pixabay.com/photo/2015/11/30/23/32/champagner-1071356_1280.jpg"> -->
         
         <v-container class="d-flex justify-right align-right">
             
             <v-btn color="success" v-on:click="isShown = !isShown" style="float: center">Ile potrzebujesz wódki ?</v-btn>
           
         </v-container>
-      </v-img>
+      <!-- </v-img> -->
       <v-card-title>Ile uzyskasz z posiadanego spirytusu:</v-card-title>
       <v-divider class="mx-4"></v-divider>
       <v-card-text>
@@ -82,7 +82,7 @@
               <tr>
                 <td>Kontrakcja:</td>
                 <td class="red--text font-weight-bold">
-                  {{ kontrakcja().toFixed(1) }}
+                  {{ kontrakcja().toFixed(0) }}
                 </td>
                 <td class="blue--text font-weight-bold">
                   {{ (kontrakcja() / 1000).toFixed(3) }}
@@ -125,14 +125,14 @@
 
 
     <v-card v-show="isShown" class="mx-2 my-2" max-width="auto" center>
-      <v-img class="white--text align-end" height="100px"
-        src="https://cdn.pixabay.com/photo/2018/12/28/01/34/rum-3898745_1280.jpg">
+      <!-- <v-img class="white--text align-end" height="100px"
+        src="https://cdn.pixabay.com/photo/2018/12/28/01/34/rum-3898745_1280.jpg"> -->
         <v-container class="d-flex justify-right align-right">
             
             <v-btn  color="success" v-on:click="isShown = !isShown" style="float: center">Ile masz spirytusu ?</v-btn>
           
         </v-container>
-        </v-img>
+        <!-- </v-img> -->
         
           
         
