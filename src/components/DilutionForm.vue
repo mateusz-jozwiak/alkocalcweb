@@ -10,7 +10,7 @@
         
         <v-container class="d-flex justify-right align-right">
             
-            <v-btn color="success" v-on:click="isShown = !isShown" style="float: center">Ile potrzebujesz wódki ?</v-btn>
+            
           
         </v-container>
       </v-img>
@@ -101,6 +101,7 @@
 
       <v-card-action justify="space-around">
         <!-- <v-btn :disabled="ilosc <= 0" color="primary" @click=" alert = true" dark> Oblicz </v-btn> -->
+        <v-btn block color="success" v-on:click="isShown = !isShown">Ile potrzebujesz wódki ?</v-btn>
         <v-btn block color="error" depressed @click="clear()"> Wyczyść </v-btn>
       </v-card-action>
 
@@ -129,7 +130,7 @@
         src="https://cdn.pixabay.com/photo/2018/12/28/01/34/rum-3898745_1280.jpg">
         <v-container class="d-flex justify-right align-right">
             
-            <v-btn  color="success" v-on:click="isShown = !isShown" style="float: center">Ile masz spirytusu ?</v-btn>
+            
           
         </v-container>
         </v-img>
@@ -223,6 +224,7 @@
 
       <v-card-action justify="space-around">
         <!-- <v-btn :disabled="ilosc <= 0" color="primary" @click=" alert = true" dark> Oblicz </v-btn> -->
+        <v-btn block color="success" v-on:click="isShown = !isShown" style="float: center">Ile masz spirytusu ?</v-btn>
         <v-btn block color="error" depressed @click="clear()"> Wyczyść </v-btn>
       </v-card-action>
 
