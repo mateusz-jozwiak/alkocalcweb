@@ -63,8 +63,8 @@ export default {
         items: [  
             { text: "Rozcieńczanie", icon: "mdi-account", link: "/dillution" },
             { text: "Mieszanie", icon: "mdi-clock", link: "/blending" },
-            { text: "About", icon: "mdi-desk-lamp-off", link: "/about" },
-            // { text: "Piwowarstwo", icon: "mdi-flask-empty", link: "/about" },
+            { text: "Nastaw/Blg", icon: "mdi-flask-empty", link: "/blg" },
+            { text: "About", icon: "mdi-desk-lamp-off", link: "/about" },        
             // { text: "Gorzelnictwo", icon: "mdi-flower", link: "/about" },
             // { text: "Winiarstwo", icon: "mdi-calculator", link: "/about" },
             // { text: "Nastaw", icon: "mdi-desk-lamp-off", link: "/about" },

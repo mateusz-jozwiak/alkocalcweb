@@ -52,8 +52,8 @@
                       <v-btn small icon color="error" @click="remove(item, index)" class="btn btn-sm btn-outline-secondary mr-2"><v-icon>mdi-delete</v-icon></v-btn>
                     </span>
                     <span v-else>
-                      <v-btn small icon color="error" class="btn btn-sm btn-outline-secondary mr-2" @click="cancel(item)"><v-icon>mdi-cancel</v-icon></v-btn>
                       <v-btn small icon color="success" class="btn btn-sm btn-outline-secondary mr-2" @click="save(item)"><v-icon>mdi-content-save</v-icon></v-btn>
+                      <v-btn small icon color="error" class="btn btn-sm btn-outline-secondary mr-2" @click="cancel(item)"><v-icon>mdi-cancel</v-icon></v-btn>
                     </span>
                   </td>
                 </tr>
@@ -157,11 +157,11 @@ export default {
     },
 
     subtotal(item) {
-      return (item.qty * (item.price/100))
+      return (item.qty * (item.price/100)) || 0
     },
     subatotal() {
       return this.items.map(item => item.qty)
-    .reduce((prev, current) => prev + parseFloat(current,10));
+    .reduce((prev, current) => prev + parseFloat(current,10)) || 0
     },
 
   },
