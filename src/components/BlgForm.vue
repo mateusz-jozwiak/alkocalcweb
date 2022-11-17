@@ -119,7 +119,7 @@
                             </v-col>
 
                             <v-col cols="12" md="6">
-                                <v-numeric label="Ilość cukru" clearable="true" min="0" max="100" precision="0"
+                                <v-numeric label="Ilość cukru" clearable="true" min="0" max="100" precision="2"
                                     suffix="kg" v-model="ileCukru" required></v-numeric>
                             </v-col>
                         </v-row>
