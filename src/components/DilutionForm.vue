@@ -137,7 +137,7 @@
         
           
         
-      <v-card-title>Ilość wódki jaką chcesz uzyskać:</v-card-title>
+      <v-card-title>Ilość wódki jaką chcesz uzyskać bubu:</v-card-title>
       <v-divider class="mx-4"></v-divider>
       <v-card-text>
         <v-form>
