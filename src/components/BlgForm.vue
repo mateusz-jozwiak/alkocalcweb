@@ -28,7 +28,7 @@
                     </v-container>
                 </v-form>
 
-                <v-container>
+                   <v-container>
                     <v-row>
                            <v-col cols="12" md="6">
                                
@@ -50,11 +50,11 @@
                                             </th>
                                         </tr>
                                     </thead> -->
-                                    <tbody >
+                                    <tbody>
                                         <tr>
                                             <td>Objętość wody:</td>
                                             <td class="red--text font-weight-bold">
-                                                 {{ objWody().toFixed(2) }} l
+                                                {{ objWody().toFixed(2) }} l
                                             </td>
                                             
             
@@ -64,24 +64,23 @@
                                             <td class="red--text font-weight-bold">
                                                 {{ iloscCukru().toFixed(2) }} kg
                                             </td>
-                                            
+                                           
                                         </tr>
                                         <tr>
-                                            <td>Stęzenie w nastawie:</td>
+                                            <td>Stęzenie:</td>
                                             <td class="red--text font-weight-bold">
                                                 {{ stezenieNastawu().toFixed(2) }} %
                                             </td>
-                                            
-            
+                                           
                                         </tr>
                                         <tr>
                                             <td>Objętość etanolu:</td>
                                             <td class="red--text font-weight-bold">
-                                               {{ objEtanolu().toFixed(2) }} l
+                                                {{ objEtanolu().toFixed(2) }} l
                                             </td>
-                                            
-            
+                                           
                                         </tr>
+                                        
                                     </tbody>
                                 </template>
                             </v-simple-table>
@@ -89,7 +88,6 @@
                        </v-row>
 
                    </v-container>
-
 
                 
                 <!-- </v-alert> -->
@@ -128,6 +126,7 @@
 
                     </v-container>
                 </v-form>
+                
                 <v-container>
                     <v-row>
                            <v-col cols="12" md="6">
