@@ -28,19 +28,19 @@
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="(item, index) in items" :key="index">
+                <tr v-for="(item, index) in items" :key="index" class="cell">
                   <td>{{index + 1 }}</td>
                   <td>
                     <span v-if="editIndex !== index">{{ item.qty }}</span>
                     <span v-if="editIndex === index">
-                      <v-numeric class="form-control form-control-sm" type="number" v-model.number="item.qty"></v-numeric>
+                      <v-numeric dense outlined class="form-control form-control-sm" type="number" v-model.number="item.qty"></v-numeric>
                     </span>
                   </td>
                   
                   <td>
                     <span v-if="editIndex !== index">{{ item.price }}</span>
                     <span v-if="editIndex === index">
-                      <v-numeric class="form-control form-control-sm" type="number" v-model.number="item.price"></v-numeric>
+                      <v-numeric dense outlined class="form-control form-control-sm" type="number" v-model.number="item.price"></v-numeric>
                     </span>
                   </td>
                  
@@ -59,6 +59,12 @@
                 </tr>
               </tbody>
             </v-simple-table>
+            
+            
+            
+    
+
+
             <v-divider></v-divider>
           </v-container>
         </v-form>
@@ -103,6 +109,13 @@
   </div>
 </template>
 
+<style>
+.cell {
+  
+  margin-top: 25px;
+}
+</style>
+
 <script>
 export default {
 
@@ -112,6 +125,7 @@ export default {
 
   data() {
     return {
+      dialog: false,
       editIndex: null,
       originalData: null,
       items: [
