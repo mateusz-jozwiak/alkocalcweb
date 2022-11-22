@@ -42,6 +42,14 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "blend" */ '../views/BlgView.vue')
   },
+  {
+    path: '/correction',
+    name: 'correction',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "blend" */ '../views/CorrectionView.vue')
+  },
 ]
 
 
