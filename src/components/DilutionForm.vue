@@ -214,6 +214,7 @@
               <v-btn block color="success" v-on:click="isShown = !isShown" style="float: center">Ile masz spirytusu ?</v-btn>
               <v-btn block color="error" depressed @click="clear()"> Wyczyść </v-btn>
             </v-card-action>
+            
 
           </v-container>
         </v-form>
@@ -315,8 +316,9 @@ export default {
 
 <style scoped>
 .center {
-  max-width: 80%;
-  margin: auto;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 900px;
   
 }
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="center">
+  <div class="responsive-div">
     <v-card class="mx-2 my-2 rounded-lg" max-width="auto" center>
       <v-img
         class="white--text align-end"
@@ -200,8 +200,15 @@ export default {
 }
 </script>
 <style scoped>
-.center {
-    max-width: 80%;
-    margin: auto;
+.flex-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.responsive-div {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 900px;
+  
 }
 </style>

@@ -1,8 +1,8 @@
 <template>
-    <div class="center">
+    <div class="flex-container">
         <v-card v-show="!isShown" class="mx-2 my-2 rounded-lg" max-width="auto" center>
             <v-img class="white--text align-end" height="100px"
-                src="https://cdn.pixabay.com/photo/2013/07/12/12/52/ruler-146428_1280.png">
+                src="https://images.unsplash.com/photo-1590346318008-ed7bfaeeb2f2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80">
                 <v-container class="d-flex justify-right align-right"> </v-container>
             </v-img>
             <v-card-title>Korekta cukromierza<template>
@@ -115,9 +115,9 @@ export default {
 </script>
 
 <style scoped>
-.center {
-    max-width: 80%;
-    margin: auto;
-    
-}
+.flex-container {
+margin: 0 auto;
+  width: 100%;
+  max-width: 900px;
+  }
 </style>
