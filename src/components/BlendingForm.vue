@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <v-card class="mx-2 my-2" max-width="auto" center>
+  <div class="center">
+    <v-card class="mx-2 my-2 rounded-lg" max-width="auto" center>
       <v-img
         class="white--text align-end"
         height="100px"
@@ -199,3 +199,9 @@ export default {
 
 }
 </script>
+<style scoped>
+.center {
+    max-width: 80%;
+    margin: auto;
+}
+</style>

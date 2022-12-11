@@ -1,10 +1,10 @@
 <template>
 
-  <div>
+  <div class="center">
 
 
 
-    <v-card v-show="!isShown" class="mx-2 my-2" max-width="auto" center>
+    <v-card v-show="!isShown" class="mx-2 my-2 rounded-lg" max-width="auto" center>
       <v-img class="white--text align-end" height="100px"
         src="https://cdn.pixabay.com/photo/2015/11/30/23/32/champagner-1071356_1280.jpg">
 
@@ -85,6 +85,12 @@
 
             </v-row>
 
+            <v-card-action justify="space-around" class="rounded-b-lg">
+              <!-- <v-btn :disabled="ilosc <= 0" color="primary" @click=" alert = true" dark> Oblicz </v-btn> -->
+              <v-btn block color="success" v-on:click="isShown = !isShown">Ile potrzebujesz wódki ?</v-btn>
+              <v-btn block class="" color="error" depressed @click="clear()"> Wyczyść </v-btn>
+            </v-card-action>
+
           </v-container>
         </v-form>
 
@@ -96,14 +102,10 @@
 
       </v-card-text>
 
-      <v-divider class="mx-4"></v-divider>
+      
 
 
-      <v-card-action justify="space-around">
-        <!-- <v-btn :disabled="ilosc <= 0" color="primary" @click=" alert = true" dark> Oblicz </v-btn> -->
-        <v-btn block color="success" v-on:click="isShown = !isShown">Ile potrzebujesz wódki ?</v-btn>
-        <v-btn block color="error" depressed @click="clear()"> Wyczyść </v-btn>
-      </v-card-action>
+      
 
 
 
@@ -125,7 +127,7 @@
 
 
 
-    <v-card v-show="isShown" class="mx-2 my-2" max-width="auto" center>
+    <v-card v-show="isShown" class="mx-2 my-2 rounded-lg" max-width="auto" center>
       <v-img class="white--text align-end" height="100px"
         src="https://cdn.pixabay.com/photo/2018/12/28/01/34/rum-3898745_1280.jpg">
         <v-container class="d-flex justify-right align-right">
@@ -207,6 +209,12 @@
 
             </v-row>
 
+            <v-card-action justify="space-around" class="rounded-b-lg">
+              <!-- <v-btn :disabled="ilosc <= 0" color="primary" @click=" alert = true" dark> Oblicz </v-btn> -->
+              <v-btn block color="success" v-on:click="isShown = !isShown" style="float: center">Ile masz spirytusu ?</v-btn>
+              <v-btn block color="error" depressed @click="clear()"> Wyczyść </v-btn>
+            </v-card-action>
+
           </v-container>
         </v-form>
 
@@ -218,14 +226,10 @@
 
       </v-card-text>
 
-      <v-divider class="mx-4"></v-divider>
+      
 
 
-      <v-card-action justify="space-around">
-        <!-- <v-btn :disabled="ilosc <= 0" color="primary" @click=" alert = true" dark> Oblicz </v-btn> -->
-        <v-btn block color="success" v-on:click="isShown = !isShown" style="float: center">Ile masz spirytusu ?</v-btn>
-        <v-btn block color="error" depressed @click="clear()"> Wyczyść </v-btn>
-      </v-card-action>
+      
 
 
 
@@ -308,3 +312,12 @@ export default {
 
 };
 </script>
+
+<style scoped>
+.center {
+  max-width: 80%;
+  margin: auto;
+  
+}
+
+</style>

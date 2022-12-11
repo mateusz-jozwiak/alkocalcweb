@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <v-card v-show="!isShown" class="mx-2 my-2" max-width="auto" center>
+    <div class="center">
+        <v-card v-show="!isShown" class="mx-2 my-2 rounded-lg" max-width="auto" center>
             <v-img class="white--text align-end" height="100px"
                 src="https://cdn.pixabay.com/photo/2015/02/04/09/03/brown-sugar-623514_1280.jpg">
 
@@ -138,7 +138,7 @@
 
 
 
-        <v-card v-show="!isShown" class="mx-2 my-2" max-width="auto" center>
+        <v-card v-show="!isShown" class="mx-2 my-2 rounded-lg" max-width="auto" center>
             <v-card-title>Obliczenia °Blg<template>
                     <div class="text-center">
                         <v-dialog v-model="dialog2" width="500">
@@ -228,18 +228,7 @@
                     </v-container>
                 </v-form>
 
-                <v-container>
-                    <v-row>
-                        <v-col cols="12" md="6">
-
-                        </v-col>
-
-                        <v-col cols="12" md="6">
-
-                        </v-col>
-                    </v-row>
-
-                </v-container>
+                
 
 
                 <!-- </v-alert> -->
@@ -310,5 +299,8 @@ export default {
 </script>
 
 <style scoped>
-
+.center {
+    max-width: 80%;
+    margin: auto;
+}
 </style>

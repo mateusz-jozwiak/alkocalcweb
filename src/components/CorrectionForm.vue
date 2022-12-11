@@ -1,13 +1,9 @@
 <template>
-    <div>
-
-        <v-card v-show="!isShown" class="mx-2 my-2" max-width="auto" center>
+    <div class="center">
+        <v-card v-show="!isShown" class="mx-2 my-2 rounded-lg" max-width="auto" center>
             <v-img class="white--text align-end" height="100px"
                 src="https://cdn.pixabay.com/photo/2013/07/12/12/52/ruler-146428_1280.png">
-
-                <v-container class="d-flex justify-right align-right">
-
-                </v-container>
+                <v-container class="d-flex justify-right align-right"> </v-container>
             </v-img>
             <v-card-title>Korekta cukromierza<template>
                     <div class="text-center">
@@ -20,16 +16,19 @@
 
                             <v-card>
                                 <v-card-title class="text-h5 dark lighten-2">
-                                    Korekta cukromierza <v-icon color="primary" class="ml-2">mdi-information</v-icon>
+                                    Korekta cukromierza
+                                    <v-icon color="primary" class="ml-2">mdi-information</v-icon>
                                 </v-card-title>
 
                                 <v-card-text>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                                    irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                                    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                                    deserunt mollit anim id est laborum.
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                                    do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                    Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                                    laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                                    irure dolor in reprehenderit in voluptate velit esse cillum
+                                    dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                                    cupidatat non proident, sunt in culpa qui officia deserunt
+                                    mollit anim id est laborum.
                                 </v-card-text>
 
                                 <v-divider></v-divider>
@@ -59,82 +58,66 @@
                             <v-col cols="12" md="6">
                                 <v-simple-table dense :disabled="ilosc <= 0">
                                     <template v-slot:default>
-
                                         <tbody>
                                             <tr>
                                                 <td>Korekcja odczytu:</td>
                                                 <td class="red--text font-weight-bold">
                                                     {{ korekta().toFixed(1) }} °blg
                                                 </td>
-
-
                                             </tr>
-
                                         </tbody>
                                     </template>
                                 </v-simple-table>
                             </v-col>
                         </v-row>
-
                     </v-container>
                 </v-form>
 
-                <v-container>
-                    <v-row>
-                        <v-col cols="12" md="6">
-
-                        </v-col>
-
-                        <v-col cols="12" md="6">
-
-                        </v-col>
-                    </v-row>
-
-                </v-container>
-
 
                 <!-- </v-alert> -->
-
             </v-card-text>
-
-
-
-
-
-
-
-
-
         </v-card>
+        <!-- <v-checkbox v-model="kilometry">x1000</v-checkbox>
+        <v-numeric label="liczba" required clearable="true" precision="1" suffix="ml" v-model="liczba"></v-numeric> -->
     </div>
 </template>
 
 <script>
-
-
-
-
 export default {
     data() {
         return {
             temp_nastawu: 20,
             odczyt_blg: 0,
-            
+
             dialog2: false,
-        }
+
+            // kilometry: false,
+            // mnoznik: 1,
+            // liczba: 0,
+        };
     },
     methods: {
-
-        korekta() {         
-            this.resultKorekta = parseFloat(this.odczyt_blg) + ((parseFloat(this.temp_nastawu) - 20) * 0.05)
-            return this.resultKorekta
+        korekta() {
+            this.resultKorekta =
+                parseFloat(this.odczyt_blg) +
+                (parseFloat(this.temp_nastawu) - 20) * 0.05;
+            return this.resultKorekta;
         },
+        // oblicz(){
+        //     if (this.kilometry == true) {
+        //         this.mnoznik = 'l'
+        //     } else {
+        //         this.mnoznik = 'ml'
+        //     } return this.mnoznik
+        // },
     },
-
-
-}
+};
 </script>
 
 <style scoped>
-
+.center {
+    max-width: 80%;
+    margin: auto;
+    
+}
 </style>
