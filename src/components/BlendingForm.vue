@@ -9,198 +9,184 @@
         <v-container class="d-flex justify-right align-right"> </v-container>
       </v-img>
       <v-card-title>Mieszanie alkoholu o róznych stężeniach:</v-card-title>
-      
+
       <v-divider class="mx-4"></v-divider>
       <v-card-text>
         <div>
-          <v-btn color="success" @click="add">Dodaj</v-btn>
-        </div>
-        <v-form>
-          <v-container>
-            <v-simple-table dense>
-              <thead >
+          <div class="form-wrap">
+            <form action="#">
+              <v-row>
+                <v-col cols="12" md="6">
+                  <v-numeric
+                    label="Ilość"
+                    required
+                    clearable="true"
+                    precision="0"
+                    suffix="ml"
+                    v-model="addModel"
+                  ></v-numeric>
+                </v-col>
+
+                <v-col cols="12" md="6">
+                  <v-numeric
+                    label="Stężenie"
+                    required
+                    clearable="true"
+                    precision="2"
+                    min="0"
+                    max="100"
+                    suffix="%"
+                    v-model="addYear"
+                  ></v-numeric>
+                </v-col>
+              </v-row>
+
+              <div class="d-flex align-end flex-column">
+                <v-btn class=""
+                  type="submit"
+                  color="success"
+                  v-on:click.prevent="addData"
+                >
+                  Dodaj
+                </v-btn>
+              </div>
+            </form>
+          </div>
+          <v-simple-table dense>
+            <template v-slot:default>
+              <thead>
                 <tr>
-                  <th >#</th>
-                  <th >Ilość (ml)</th>
-                  
-                  <th>Stężenie (%)</th>
-                  <th>Akcje</th>
+                  <th class="text-left">#</th>
+                  <th class="text-left">Ilość</th>
+                  <th class="text-left">Stężenie</th>
+                  <th class="text-left">Akcje</th>
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="(item, index) in items" :key="index" class="cell">
-                  <td>{{index + 1 }}</td>
+                <tr v-for="(car, index) in cars" :key="index">
+                  <td>{{ index + 1 }}</td>
+                  <td>{{ car.model }}</td>
+                  <td>{{ car.year }}</td>
                   <td>
-                    <span v-if="editIndex !== index">{{ item.qty }}</span>
-                    <span v-if="editIndex === index">
-                      <v-numeric dense outlined class="form-control form-control-sm" type="number" v-model.number="item.qty"></v-numeric>
-                    </span>
-                  </td>
-                  
-                  <td>
-                    <span v-if="editIndex !== index">{{ item.price }}</span>
-                    <span v-if="editIndex === index">
-                      <v-numeric dense outlined class="form-control form-control-sm" type="number" v-model.number="item.price"></v-numeric>
-                    </span>
-                  </td>
-                 
-                  <!-- <td><div class="text-right">{{ subtotal(item) | money }}</div></td> -->
-                  
-                  <td>
-                    <span v-if="editIndex !== index">
-                      <v-btn small icon color="success" @click="edit(item, index)" class="btn btn-sm btn-outline-secondary mr-2"><v-icon>mdi-pencil</v-icon></v-btn>
-                      <v-btn small icon color="error" @click="remove(item, index)" class="btn btn-sm btn-outline-secondary mr-2"><v-icon>mdi-delete</v-icon></v-btn>
-                    </span>
-                    <span v-else>
-                      <v-btn small icon color="success" class="btn btn-sm btn-outline-secondary mr-2" @click="save(item)"><v-icon>mdi-content-save</v-icon></v-btn>
-                      <v-btn small icon color="error" class="btn btn-sm btn-outline-secondary mr-2" @click="cancel(item)"><v-icon>mdi-cancel</v-icon></v-btn>
+                    <span>
+                      <v-btn
+                        small
+                        icon
+                        color="error"
+                        @click="remove(car, index)"
+                        class="btn btn-sm btn-outline-secondary mr-2"
+                        ><v-icon>mdi-delete</v-icon></v-btn
+                      >
                     </span>
                   </td>
                 </tr>
               </tbody>
+            </template>
+          </v-simple-table>
+          <div>
+            <v-simple-table dense>
+              <template v-slot:default>
+                <thead>
+                  <tr>
+                    <th class="text-left"></th>
+                    <th class="text-left">Objętość (ml)</th>
+                    <th class="text-left">Objętość (l)</th>
+                    <th class="text-left">Stężenie (%)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <v-divider></v-divider>
+                  <tr>
+                    <td>Wynik mieszania:</td>
+                    <td
+                      style="float: center"
+                      class="red--text font-weight-bold"
+                    >
+                      {{ subatotal(item) }}
+                    </td>
+
+                    <td
+                      style="float: center"
+                      class="red--text font-weight-bold"
+                    >
+                      {{ subatotal(item) / 1000 }}
+                    </td>
+                    <td class="blue--text font-weight-bold">
+                      {{
+                        ((allSubTotal / subatotal(item)) * 100).toFixed(2) +
+                        " %"
+                      }}
+                    </td>
+                  </tr>
+                </tbody>
+              </template>
             </v-simple-table>
-            
-            
-            
-    
-
-
-            <v-divider></v-divider>
-          </v-container>
-        </v-form>
-        <v-simple-table dense>
-          <template v-slot:default>
-            <thead>
-              <tr>
-                <th class="text-left"></th>
-                <th class="text-left">Objętość (ml)</th>
-                <th class="text-left">Objętość (l)</th>
-                <th class="text-left">Stężenie (%)</th>
-              </tr>
-            </thead>
-            <tbody>
-              <v-divider></v-divider>
-              <tr>
-                <td>Wynik mieszania:</td>
-                <td style="float: center" class="red--text font-weight-bold">
-                  {{ subatotal(item)}} 
-                </td>
-
-                <td style="float: center" class="red--text font-weight-bold">
-                  {{ subatotal(item)/1000}} 
-                </td>
-                <td class="blue--text font-weight-bold">
-                  {{ (allSubTotal / subatotal(item)*100).toFixed(2) + " %"}}
-                </td>
-              </tr>
-               
-            </tbody>
-          </template>
-        </v-simple-table>
+          </div>
+        </div>
       </v-card-text>
-
-      
 
       <!-- <v-card-action justify="space-around">
         <v-btn block color="error" depressed > Wyczyść </v-btn>
       </v-card-action> -->
-      
     </v-card>
   </div>
 </template>
 
 <style>
 .cell {
-  
   margin-top: 25px;
 }
 </style>
 
 <script>
-
-
 export default {
-
-  filters: {
-    money: (value) => new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'PLN' }).format(value)
-  },
-
   data() {
     return {
-      dialog: false,
-      editIndex: null,
-      originalData: null,
-      items: [
-        // { qty: 1, unit: null, price: 43, },
-        // { qty: 1, unit: null, price: 96, },
-      ],
+      cars: [],
+      addModel: "",
+      addYear: "",
       tax: 10,
-    }
+    };
   },
-
   methods: {
-
-    add() {
-      this.originalData = null
-      this.items.push({ code: '', qty: 0, price: 0 })
-      this.editIndex = this.items.length - 1
+    addData() {
+      this.cars.push({
+        model: this.addModel,
+        year: this.addYear,
+      });
+      (this.addModel = ""), (this.addYear = "");
     },
-
-    edit(item, index) {
-      this.originalData = Object.assign({}, item)
-      this.editIndex = index
+    remove(car, index) {
+      this.cars.splice(index, 1);
     },
-
-    cancel(item) {
-      this.editIndex = null
-
-      if (!this.originalData) {
-        this.items.splice(this.items.indexOf(item), 1)
-        return
-      }
-
-      Object.assign(item, this.originalData)
-      this.originalData = null
-    },
-
-    remove(item, index) {
-      this.items.splice(index, 1)
-    },
-
-    save() {
-      this.originalData = null
-      this.editIndex = null
-    },
-
-    subtotal(item) {
-      return (item.qty * (item.price/100)) || 0
+    subtotal(car) {
+      return car.model * (car.year / 100) || 0;
     },
     subatotal() {
-      return this.items.map(item => item.qty)
-    .reduce((prev, current) => prev + parseFloat(current,10)) || 0
+      return (
+        this.cars
+          .map((car) => car.model)
+          .reduce((prev, current) => prev + parseFloat(current, 10)) || 0
+      );
     },
-
   },
-
   computed: {
-
-    
     allSubTotal() {
-      return this.items
-        .map(item => this.subtotal(item))
-        .reduce((a, b) => a + b, 0) || 0
+      return (
+        this.cars.map((car) => this.subtotal(car)).reduce((a, b) => a + b, 0) ||
+        0
+      );
     },
 
     total() {
       return this.tax
-        ? this.allSubTotal + (this.allSubTotal * (this.tax / 100))
-        : this.allSubTotal || 0
-    }
-
+        ? this.allSubTotal + this.allSubTotal * (this.tax / 100)
+        : this.allSubTotal || 0;
+    },
   },
-
-}
+};
 </script>
+
 <style scoped>
 .flex-container {
   display: flex;
@@ -211,6 +197,10 @@ export default {
   margin: 0 auto;
   width: 100%;
   max-width: 900px;
+}
+
+.right {
   
+  margin-left: auto;
 }
 </style>
