@@ -41,7 +41,7 @@
                 </v-col>
               </v-row>
 
-              <div class="d-flex align-end flex-column">
+              <div class="d-flex justify-end">
                 <v-btn class=""
                   type="submit"
                   color="success"
