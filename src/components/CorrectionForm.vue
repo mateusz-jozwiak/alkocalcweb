@@ -91,7 +91,7 @@
                   <template v-slot:default>
                     <tbody>
                       <tr>
-                        <td>Korekcja odczytu:</td>
+                        <td>Korekta odczytu:</td>
                         <td class="red--text font-weight-bold">
                           {{ korekta().toFixed(1) }} °blg
                         </td>
@@ -117,7 +117,7 @@
       <v-card-title
         >Korekta alkoholomierza<template>
           <div class="text-center">
-            <v-dialog v-model="dialog2" width="500">
+            <v-dialog v-model="dialog" width="500">
               <template v-slot:activator="{ on, attrs }">
                 <v-btn
                   class="ml-2"
@@ -152,7 +152,7 @@
 
                 <v-card-actions>
                   <v-spacer></v-spacer>
-                  <v-btn color="primary" text @click="dialog2 = false">
+                  <v-btn color="primary" text @click="dialog = false">
                     Ok
                   </v-btn>
                 </v-card-actions>
@@ -192,7 +192,7 @@
                   <template v-slot:default>
                     <tbody>
                       <tr>
-                        <td>Korekcja odczytu:</td>
+                        <td>Korekta odczytu:</td>
                         <td class="red--text font-weight-bold">
                           {{ korekta_alko().toFixed(2) }} %
                         </td>
@@ -223,6 +223,7 @@ export default {
       odczyt_blg: 0,
 
       dialog2: false,
+      dialog: false,
 
       temp_odczytu_alko: 20,
       odczyt_mocy: 56,
