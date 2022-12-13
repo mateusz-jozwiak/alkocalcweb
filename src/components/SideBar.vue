@@ -64,7 +64,7 @@ export default {
             { text: "Rozcieńczanie", icon: "mdi-account", link: "/dillution" },
             { text: "Mieszanie", icon: "mdi-clock", link: "/blending" },
             { text: "Nastaw/Blg", icon: "mdi-flask-empty", link: "/blg" },
-            { text: "Korekcja", icon: "mdi-flower", link: "/correction" },
+            { text: "Korekty odczytów", icon: "mdi-flower", link: "/correction" },
             { text: "About", icon: "mdi-desk-lamp-off", link: "/about" },        
             // { text: "Winiarstwo", icon: "mdi-calculator", link: "/about" },
             // { text: "Nastaw", icon: "mdi-desk-lamp-off", link: "/about" },
