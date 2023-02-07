@@ -1,20 +1,16 @@
 <template>
   <div class="flex-container">
-    <v-card
-      v-show="!isShown"
-      class="mx-2 my-2 rounded-lg"
-      max-width="auto"
-      center
-    >
-      <v-img
+    <v-card class="mx-2 my-2 rounded-lg" max-width="auto" center>
+      <!-- <v-img
         class="white--text align-end"
         height="100px"
         src="https://images.unsplash.com/photo-1590346318008-ed7bfaeeb2f2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
       >
-        <v-container class="d-flex justify-right align-right"> </v-container>
-      </v-img>
+        <v-container class="d-flex justify-right align-right"></v-container>
+      </v-img> -->
       <v-card-title
-        >Korekta cukromierza<template>
+        >Korekta cukromierza
+        <template>
           <div class="text-center">
             <v-dialog v-model="dialog2" width="500">
               <template v-slot:activator="{ on, attrs }">
@@ -58,8 +54,8 @@
               </v-card>
             </v-dialog>
           </div>
-        </template></v-card-title
-      >
+        </template>
+      </v-card-title>
       <v-divider class="mx-4"></v-divider>
       <v-card-text>
         <v-form>
@@ -87,7 +83,7 @@
               </v-col>
 
               <v-col cols="12" md="6">
-                <v-simple-table dense :disabled="ilosc <= 0">
+                <v-simple-table dense>
                   <template v-slot:default>
                     <tbody>
                       <tr>
@@ -108,14 +104,10 @@
       </v-card-text>
     </v-card>
 
-    <v-card
-      v-show="!isShown"
-      class="mx-2 my-2 rounded-lg"
-      max-width="auto"
-      center
-    >
+    <v-card class="mx-2 my-2 rounded-lg" max-width="auto" center>
       <v-card-title
-        >Korekta alkoholomierza<template>
+        >Korekta alkoholomierza
+        <template>
           <div class="text-center">
             <v-dialog v-model="dialog" width="500">
               <template v-slot:activator="{ on, attrs }">
@@ -138,14 +130,7 @@
                 </v-card-title>
 
                 <v-card-text>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                  irure dolor in reprehenderit in voluptate velit esse cillum
-                  dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                  cupidatat non proident, sunt in culpa qui officia deserunt
-                  mollit anim id est laborum.
+                  {{ stala.J }}
                 </v-card-text>
 
                 <v-divider></v-divider>
@@ -159,8 +144,8 @@
               </v-card>
             </v-dialog>
           </div>
-        </template></v-card-title
-      >
+        </template>
+      </v-card-title>
       <v-divider class="mx-4"></v-divider>
       <v-card-text>
         <v-form>
@@ -188,7 +173,7 @@
               </v-col>
 
               <v-col cols="12" md="6">
-                <v-simple-table dense :disabled="ilosc <= 0">
+                <v-simple-table dense>
                   <template v-slot:default>
                     <tbody>
                       <tr>
@@ -209,12 +194,13 @@
       </v-card-text>
     </v-card>
     <!-- <v-checkbox v-model="kilometry">x1000</v-checkbox>
-        <v-numeric label="liczba" required clearable="true" precision="1" suffix="ml" v-model="liczba"></v-numeric> -->
+            <v-numeric label="liczba" required clearable="true" precision="1" suffix="ml" v-model="liczba"></v-numeric> -->
   </div>
 </template>
 
 <script>
-import { stale } from "./stale.js";
+import { stale } from './stale';
+
 
 export default {
   data() {
@@ -244,23 +230,22 @@ export default {
     },
     //=D3+0,001*(S15*(D3*100)^0+S17*(D3*100)^1+S19*(D3*100)^2+S21*(D3*100)^3
     //+S23*(D3*100)^4+S25*(D3*100)^5+S27*(D3*100)^6+S29*(D3*100)^7+S31*(D3*100)^8)*(H3-20)
-    korekta_alko() {
+    korekta_alko: function () {
       this.odczyt_mocy = this.dupka / 100;
       this.resultKorekt_alko =
         this.odczyt_mocy +
-          0.001 *
-            (this.stala.A * Math.pow(this.odczyt_mocy * 100, 0) +
-              this.stala.B * Math.pow(this.odczyt_mocy * 100, 1) +
-              this.stala.C * Math.pow(this.odczyt_mocy * 100, 2) +
-              this.stala.D * Math.pow(this.odczyt_mocy * 100, 3) +
-              this.stala.E * Math.pow(this.odczyt_mocy * 100, 4) +
-              this.stala.F * Math.pow(this.odczyt_mocy * 100, 5) +
-              this.stala.G * Math.pow(this.odczyt_mocy * 100, 6) +
-              this.stala.H * Math.pow(this.odczyt_mocy * 100, 7) +
-              this.stala.I * Math.pow(this.odczyt_mocy * 100, 8)) *
-            (this.temp_odczytu_alko - 20);
-      return this.resultKorekt_alko * 100
-      ;
+        0.001 *
+          (this.stala.A * Math.pow(this.odczyt_mocy * 100, 0) +
+            this.stala.B * Math.pow(this.odczyt_mocy * 100, 1) +
+            this.stala.C * Math.pow(this.odczyt_mocy * 100, 2) +
+            this.stala.D * Math.pow(this.odczyt_mocy * 100, 3) +
+            this.stala.E * Math.pow(this.odczyt_mocy * 100, 4) +
+            this.stala.F * Math.pow(this.odczyt_mocy * 100, 5) +
+            this.stala.G * Math.pow(this.odczyt_mocy * 100, 6) +
+            this.stala.H * Math.pow(this.odczyt_mocy * 100, 7) +
+            this.stala.I * Math.pow(this.odczyt_mocy * 100, 8)) *
+          (this.temp_odczytu_alko - 20);
+      return this.resultKorekt_alko * 100;
     },
     // oblicz(){
     //     if (this.kilometry == true) {

@@ -1,18 +1,13 @@
 <template>
   <div class="center">
-    <v-card
-      v-show="!isShown"
-      class="mx-2 my-2 rounded-lg"
-      max-width="auto"
-      center
-    >
-      <v-img
+    <v-card class="mx-2 my-2 rounded-lg" max-width="auto" center>
+      <!-- <v-img
         class="white--text align-end"
         height="100px"
         src="https://cdn.pixabay.com/photo/2015/02/04/09/03/brown-sugar-623514_1280.jpg"
       >
         <v-container class="d-flex justify-right align-right"> </v-container>
-      </v-img>
+      </v-img> -->
       <v-card-title
         >Obliczenia nastawu
         <template>
@@ -70,16 +65,22 @@
           <v-container>
             <v-row>
               <v-col cols="12" md="6">
-                <v-numeric
+                <v-text-field
+                  dense
+                  class="centered-input"
                   label="Objętość nastawu"
-                  required
-                  clearable="true"
-                  precision="2"
                   suffix="l."
+                  precision="2"
+                  required
+                  clearable
                   v-model="objNastawu"
-                ></v-numeric>
-                <v-numeric
+                  text-end
+                  pattern="numeric"
+                ></v-text-field>
+
+                <v-text-field
                   label="Początkowe BLG"
+                  class="centered-input"
                   clearable="true"
                   min="0"
                   max="100"
@@ -87,11 +88,11 @@
                   suffix="°blg"
                   v-model="startoweBLG"
                   required
-                ></v-numeric>
+                ></v-text-field>
               </v-col>
 
               <v-col cols="12" md="6">
-                <v-simple-table dense :disabled="ilosc <= 0">
+                <v-simple-table dense>
                   <template v-slot:default>
                     <!-- <thead>
                                                  <tr>
@@ -143,12 +144,7 @@
       </v-card-text>
     </v-card>
 
-    <v-card
-      v-show="!isShown"
-      class="mx-2 my-2 rounded-lg"
-      max-width="auto"
-      center
-    >
+    <v-card class="mx-2 my-2 rounded-lg" max-width="auto" center>
       <v-card-title
         >Obliczenia °Blg<template>
           <div class="text-center">
@@ -223,7 +219,7 @@
               </v-col>
 
               <v-col cols="12" md="6">
-                <v-simple-table dense :disabled="ilosc <= 0">
+                <v-simple-table dense>
                   <template v-slot:default>
                     <!-- <thead>
                                             <tr>
@@ -317,10 +313,14 @@ export default {
 };
 </script>
 
-<style scoped>
+<style LANGUAGE="SCSS">
 .center {
   margin: 0 auto;
   width: 100%;
   max-width: 900px;
+}
+
+.centered-input input {
+  text-align: right;
 }
 </style>

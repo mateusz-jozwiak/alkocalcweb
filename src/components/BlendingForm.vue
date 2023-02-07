@@ -1,13 +1,14 @@
 <template>
   <div class="responsive-div">
+    
     <v-card class="mx-2 my-2 rounded-lg" max-width="auto" center>
-      <v-img
+      <!-- <v-img
         class="white--text align-end"
         height="100px"
         src="https://cdn.pixabay.com/photo/2017/05/10/08/05/gin-2300124_1280.jpg"
       >
         <v-container class="d-flex justify-right align-right"> </v-container>
-      </v-img>
+      </v-img> -->
       <v-card-title>Mieszanie alkoholu o róznych stężeniach:</v-card-title>
 
       <v-divider class="mx-4"></v-divider>
@@ -42,7 +43,8 @@
               </v-row>
 
               <div class="d-flex justify-end">
-                <v-btn class=""
+                <v-btn
+                  class=""
                   type="submit"
                   color="success"
                   v-on:click.prevent="addData"
@@ -200,7 +202,6 @@ export default {
 }
 
 .right {
-  
   margin-left: auto;
 }
 </style>

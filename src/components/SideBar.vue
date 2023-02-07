@@ -8,7 +8,7 @@
         <div>
             <v-toolbar dark>
                 <v-btn icon>
-                    <v-icon>mdi-glass-wine</v-icon>
+                    <v-icon color="success">mdi-glass-wine</v-icon>
                 </v-btn>
 
                 <!-- <v-list-item-avatar>
@@ -61,12 +61,12 @@ export default {
     data: () => ({
         selectedItem: 0,
         items: [  
-            { text: "Rozcieńczanie", icon: "mdi-account", link: "/dillution" },
-            { text: "Mieszanie", icon: "mdi-clock", link: "/blending" },
+            { text: "Rozcieńczanie", icon: "mdi-glass-mug-variant", link: "/dillution" },
+            { text: "Mieszanie", icon: "mdi-silverware-spoon", link: "/blending" },
             { text: "Nastaw/Blg", icon: "mdi-flask-empty", link: "/blg" },
-            { text: "Korekty odczytów", icon: "mdi-flower", link: "/correction" },
-            { text: "About", icon: "mdi-desk-lamp-off", link: "/about" },        
-            // { text: "Winiarstwo", icon: "mdi-calculator", link: "/about" },
+            { text: "Korekty odczytów", icon: "mdi-thermometer-chevron-up", link: "/correction" },
+            { text: "About", icon: "mdi-information", link: "/about" },        
+            // { text: "Test", icon: "mdi-calculator", link: "/test" },
             // { text: "Nastaw", icon: "mdi-desk-lamp-off", link: "/about" },
             // { text: "Piwowarstwo", icon: "mdi-flask-empty", link: "/about" },
             // { text: "Gorzelnictwo", icon: "mdi-flower", link: "/about" },
