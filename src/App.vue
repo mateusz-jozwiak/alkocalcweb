@@ -9,7 +9,7 @@
     <v-app-bar app dark>
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
-      <v-toolbar-title>AlkoCalc</v-toolbar-title>
+      <v-toolbar-title>AlkoCalc New</v-toolbar-title>
 
       <v-spacer></v-spacer>
 
