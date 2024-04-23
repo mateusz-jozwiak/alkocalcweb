@@ -1,207 +1,91 @@
 <template>
-  <div class="responsive-div">
-    
-    <v-card class="mx-2 my-2 rounded-lg" max-width="auto" center>
-      <!-- <v-img
-        class="white--text align-end"
-        height="100px"
-        src="https://cdn.pixabay.com/photo/2017/05/10/08/05/gin-2300124_1280.jpg"
-      >
-        <v-container class="d-flex justify-right align-right"> </v-container>
-      </v-img> -->
-      <v-card-title>Mieszanie alkoholu o róznych stężeniach:</v-card-title>
-
-      <v-divider class="mx-4"></v-divider>
+  <v-container>
+    <v-card class="pa-4 mx-auto" :class="{'w-100': isMobile, 'w-80': !isMobile}">
+      <v-card-title>Formularz Mieszania Alkoholi</v-card-title>
       <v-card-text>
-        <div>
-          <div class="form-wrap">
-            <form action="#">
-              <v-row>
-                <v-col cols="12" md="6">
-                  <v-numeric
-                    label="Ilość"
-                    required
-                    clearable="true"
-                    precision="0"
-                    suffix="ml"
-                    v-model="addModel"
-                  ></v-numeric>
-                </v-col>
-
-                <v-col cols="12" md="6">
-                  <v-numeric
-                    label="Stężenie"
-                    required
-                    clearable="true"
-                    precision="2"
-                    min="0"
-                    max="100"
-                    suffix="%"
-                    v-model="addYear"
-                  ></v-numeric>
-                </v-col>
-              </v-row>
-
-              <div class="d-flex justify-end">
-                <v-btn
-                  class=""
-                  type="submit"
-                  color="success"
-                  v-on:click.prevent="addData"
-                >
-                  Dodaj
-                </v-btn>
-              </div>
-            </form>
-          </div>
-          <v-simple-table dense>
-            <template v-slot:default>
-              <thead>
-                <tr>
-                  <th class="text-left">#</th>
-                  <th class="text-left">Ilość</th>
-                  <th class="text-left">Stężenie</th>
-                  <th class="text-left">Akcje</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr v-for="(car, index) in cars" :key="index">
-                  <td>{{ index + 1 }}</td>
-                  <td>{{ car.model }}</td>
-                  <td>{{ car.year }}</td>
-                  <td>
-                    <span>
-                      <v-btn
-                        small
-                        icon
-                        color="error"
-                        @click="remove(car, index)"
-                        class="btn btn-sm btn-outline-secondary mr-2"
-                        ><v-icon>mdi-delete</v-icon></v-btn
-                      >
-                    </span>
-                  </td>
-                </tr>
-              </tbody>
-            </template>
-          </v-simple-table>
-          <div>
-            <v-simple-table dense>
-              <template v-slot:default>
+        <v-form>
+          <v-row>
+            <v-col cols="12" md="6">
+              <v-text-field label="Objętość (ml)" v-model.number="newAlcohol.volume" type="number" hint="Wprowadź objętość alkoholu" persistent-hint></v-text-field>
+            </v-col>
+            <v-col cols="12" md="6">
+              <v-text-field label="Stężenie (%)" v-model.number="newAlcohol.concentration" type="number" hint="Wprowadź stężenie alkoholu" persistent-hint></v-text-field>
+            </v-col>
+          </v-row>
+          <v-row>
+            <v-col cols="12">
+              <v-btn color="primary" @click="addAlcohol">Dodaj alkohol</v-btn>
+            </v-col>
+          </v-row>
+          <v-row>
+            <v-col cols="12">
+              <v-simple-table>
                 <thead>
                   <tr>
-                    <th class="text-left"></th>
                     <th class="text-left">Objętość (ml)</th>
-                    <th class="text-left">Objętość (l)</th>
                     <th class="text-left">Stężenie (%)</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <v-divider></v-divider>
-                  <tr>
-                    <td>Wynik mieszania:</td>
-                    <td
-                      style="float: center"
-                      class="red--text font-weight-bold"
-                    >
-                      {{ subatotal(item) }}
-                    </td>
-
-                    <td
-                      style="float: center"
-                      class="red--text font-weight-bold"
-                    >
-                      {{ subatotal(item) / 1000 }}
-                    </td>
-                    <td class="blue--text font-weight-bold">
-                      {{
-                        ((allSubTotal / subatotal(item)) * 100).toFixed(2) +
-                        " %"
-                      }}
-                    </td>
+                  <tr v-for="(item, index) in alcohols" :key="index">
+                    <td>{{ item.volume }}</td>
+                    <td>{{ item.concentration }}</td>
                   </tr>
                 </tbody>
-              </template>
-            </v-simple-table>
-          </div>
-        </div>
+              </v-simple-table>
+              <div>Totalna objętość: {{ totalVolume }} ml</div>
+              <div>Średnie stężenie: {{ averageConcentration }} %</div>
+            </v-col>
+          </v-row>
+        </v-form>
       </v-card-text>
-
-      <!-- <v-card-action justify="space-around">
-        <v-btn block color="error" depressed > Wyczyść </v-btn>
-      </v-card-action> -->
     </v-card>
-  </div>
+  </v-container>
 </template>
 
-<style>
-.cell {
-  margin-top: 25px;
+<script setup>
+import { ref, computed, onMounted, onUnmounted } from 'vue';
+
+const alcohols = ref([]);
+const newAlcohol = ref({ volume: 0, concentration: 0 });
+
+function addAlcohol() {
+  alcohols.value.push({ ...newAlcohol.value });
+  newAlcohol.value = { volume: 0, concentration: 0 };
 }
-</style>
 
-<script>
-export default {
-  data() {
-    return {
-      cars: [],
-      addModel: "",
-      addYear: "",
-      tax: 10,
-    };
-  },
-  methods: {
-    addData() {
-      this.cars.push({
-        model: this.addModel,
-        year: this.addYear,
-      });
-      (this.addModel = ""), (this.addYear = "");
-    },
-    remove(car, index) {
-      this.cars.splice(index, 1);
-    },
-    subtotal(car) {
-      return car.model * (car.year / 100) || 0;
-    },
-    subatotal() {
-      return (
-        this.cars
-          .map((car) => car.model)
-          .reduce((prev, current) => prev + parseFloat(current, 10)) || 0
-      );
-    },
-  },
-  computed: {
-    allSubTotal() {
-      return (
-        this.cars.map((car) => this.subtotal(car)).reduce((a, b) => a + b, 0) ||
-        0
-      );
-    },
+const totalVolume = computed(() => {
+  return alcohols.value.reduce((acc, curr) => acc + curr.volume, 0);
+});
 
-    total() {
-      return this.tax
-        ? this.allSubTotal + this.allSubTotal * (this.tax / 100)
-        : this.allSubTotal || 0;
-    },
-  },
-};
+const averageConcentration = computed(() => {
+  const totalConcentration = alcohols.value.reduce((acc, curr) => acc + curr.concentration * curr.volume, 0);
+  return totalVolume.value ? (totalConcentration / totalVolume.value).toFixed(2) : 0;
+});
+
+// Responsive behavior using native window width
+const isMobile = ref(window.innerWidth <= 600);
+
+// Update isMobile on window resize
+onMounted(() => {
+  const updateMobileStatus = () => {
+    isMobile.value = window.innerWidth <= 600;
+  };
+  window.addEventListener('resize', updateMobileStatus);
+  // Cleanup on component unmount
+  onUnmounted(() => {
+    window.removeEventListener('resize', updateMobileStatus);
+  });
+});
 </script>
 
 <style scoped>
-.flex-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.w-80 {
+  width: 80%;
 }
-.responsive-div {
-  margin: 0 auto;
-  width: 100%;
-  max-width: 900px;
-}
-
-.right {
-  margin-left: auto;
+@media (max-width: 600px) {
+  .w-80 {
+    width: 100%;
+  }
 }
 </style>
