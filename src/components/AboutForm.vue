@@ -10,7 +10,7 @@
               text
               onclick="window.location.href='mailto:mateusz@jozwiak.info?subject=AlkoCalc'"
             >
-              Napisz do mnie - mateusz@jozwiak.info
+              Skrobnij - mateusz@jozwiak.info
             </v-btn>
           </v-card-actions>
         </v-card>
